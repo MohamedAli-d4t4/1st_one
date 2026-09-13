@@ -17,7 +17,7 @@ jobs:
 
       - name: Download Velib CSV 
         run: |
-          mkdir -p data
+          mkdir -p data/velib
           STAMP=$(date -u +'%Y-%m-%d_%H%M')
           curl -L -f -o data/velib/velib_$STAMP.csv "https://opendata.paris.fr/api/explore/v2.1/catalog/datasets/velib-disponibilite-en-temps-reel/exports/csv?lang=fr&timezone=Europe%2FBerlin&use_labels=true&delimiter=%3B"
 
