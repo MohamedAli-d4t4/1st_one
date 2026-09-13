@@ -19,7 +19,8 @@ jobs:
         run: |
           mkdir -p data/velib
           ls -la data/velib
-          curl -L -f --retry 3 -o "data/velib/velib.csv" \
+          STAMP=$(date -u +'%Y-%m-%d_%H%M')
+          curl -L -f --retry 3 -o "data/velib/velib_$STAMP.csv" \
             "https://opendata.paris.fr/api/explore/v2.1/catalog/datasets/velib-disponibilite-en-temps-reel/exports/csv?lang=fr&timezone=Europe%2FBerlin&use_labels=true&delimiter=%3B"
           echo "Saved:"
           ls -la data/velib
