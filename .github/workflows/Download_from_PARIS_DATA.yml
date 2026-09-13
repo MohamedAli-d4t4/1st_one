@@ -15,15 +15,15 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      - name: Download Velib CSV 
+      - name: Download Velib CSV
         run: |
           mkdir -p data/velib
           ls -la data/velib
-        #STAMP=$(date -u +'%Y-%m-%d_%H%M')
           curl -L -f --retry 3 -o "data/velib/velib.csv" \
-           "https://opendata.paris.fr/api/explore/v2.1/catalog/datasets/velib-disponibilite-en-temps-reel/exports/csv?lang=fr&timezone=Europe%2FBerlin&use_labels=true&delimiter=%3B"
+            "https://opendata.paris.fr/api/explore/v2.1/catalog/datasets/velib-disponibilite-en-temps-reel/exports/csv?lang=fr&timezone=Europe%2FBerlin&use_labels=true&delimiter=%3B"
           echo "Saved:"
           ls -la data/velib
+
       - name: Save it to the repo
         run: |
           git config user.name "github-actions[bot]"
